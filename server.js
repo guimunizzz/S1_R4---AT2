@@ -8,9 +8,7 @@ app.use(express.json()); // para trabalhar com json no express é necessario ess
 app.post('/mensagem', (req,res) => {
     try {
         const {nome, idade, timeFavorito } = req.body
-        res.send(`Ola ${nome}!, você tem ${idade} anos e torce para o ${timeFavorito}`)
-        
-        res.status(201).json({message: 'Dados recebidos com sucesso no servidor.'})
+        res.status(201).json({mensagem: `Ola ${nome}!, você tem ${idade} anos e torce para o ${timeFavorito}`})
     } catch (error) {
         res.status(500).json({message: `Ocorreu um erro ao processar a requisição`, errorMessage: error.message});
     }
