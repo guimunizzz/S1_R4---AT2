@@ -11,8 +11,9 @@ app.post('/login', (req,res) => {
         const { usuario, senha} = req.body
         if (usuario != "admin" || senha != "1234") {
             res.status(400).json({message: "Login inválido, tente novamente!"})
+        } else {
+            res.status(201).json({sucesso: "Login realizado com sucesso"})
         }
-        res.status(201).json({sucesso: "Login realizado com sucesso"})
     } catch (error) {
         res.status(500).json({message: `Ocorreu um erro ao processar a requisição`, errorMessage: error.message});
     }
